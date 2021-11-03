@@ -3,18 +3,16 @@ from math import prod
 
 def main():
     inputs = [tuple(int(n) for n in i.split("x", 2)) for i in open("inputs/day02.txt", 'r').readlines()]
-    part_one(inputs)
-    part_two(inputs)
+    print(f"Part One: {part_one(inputs)}")
+    print(f"Part Two: {part_two(inputs)}")
 
 
-def part_one(inputs: list[tuple[int, ...]]):
-    total = sum(get_area(i) for i in inputs)
-    print(f"Part One: {total}")
+def part_one(inputs: list[tuple[int, ...]]) -> int:
+    return sum(get_area(i) for i in inputs)
 
 
-def part_two(inputs: list[tuple[int, ...]]):
-    total = sum(get_bow_length(i) for i in inputs)
-    print(f"Part Two: {total}")
+def part_two(inputs: list[tuple[int, ...]]) -> int:
+    return sum(get_bow_length(i) for i in inputs)
 
 
 def get_area(sides: tuple[int, ...]) -> int:

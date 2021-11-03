@@ -1,16 +1,15 @@
 from collections import defaultdict
 
-
 dir_map = {">": 1, "<": -1, "^": 1j, "v": -1j}
 
 
 def main():
     inputs = [dir_map[i] for i in open("inputs/day03.txt", 'r').read()]
-    part_one(inputs)
-    part_two(inputs)
+    print(f"Part One: {part_one(inputs)}")
+    print(f"Part Two: {part_two(inputs)}")
 
 
-def part_one(inputs: list[complex]):
+def part_one(inputs: list[complex]) -> int:
     grid: dict[complex, int] = defaultdict(int)
 
     grid[0] += 1
@@ -20,11 +19,10 @@ def part_one(inputs: list[complex]):
         pointer += direction
         grid[pointer] += 1
 
-    result = sum(i > 0 for i in grid.values())
-    print(f"Part One: {result}")
+    return sum(i > 0 for i in grid.values())
 
 
-def part_two(inputs: list[complex]):
+def part_two(inputs: list[complex]) -> int:
     grid: dict[complex, int] = defaultdict(int)
 
     santa_inputs = inputs[0:][::2]
@@ -41,8 +39,7 @@ def part_two(inputs: list[complex]):
         pointer += direction
         grid[pointer] += 1
 
-    result = sum(i > 0 for i in grid.values())
-    print(f"Part Two: {result}")
+    return sum(i > 0 for i in grid.values())
 
 
 if __name__ == '__main__':

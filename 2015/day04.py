@@ -4,26 +4,24 @@ import itertools
 
 def main():
     inputs = open("inputs/day04.txt", 'r').read().strip()
-    part_one(inputs)
-    part_two(inputs)
+    print(f"Part One: {part_one(inputs)}")
+    print(f"Part Two: {part_two(inputs)}")
 
 
-def part_one(inputs: str):
+def part_one(inputs: str) -> int:
     for i in itertools.count(start=1):
         digest = hashlib.md5(f"{inputs}{i}".encode()).hexdigest()
 
         if str(digest).startswith("00000"):
-            print(f"Part One: {i}")
-            return
+            return i
 
 
-def part_two(inputs: str):
+def part_two(inputs: str) -> int:
     for i in itertools.count(start=1):
         digest = hashlib.md5(f"{inputs}{i}".encode()).hexdigest()
 
         if str(digest).startswith("000000"):
-            print(f"Part Two: {i}")
-            return
+            return i
 
 
 if __name__ == '__main__':
