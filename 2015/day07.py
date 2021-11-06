@@ -1,5 +1,4 @@
 import operator
-
 from typing import Callable
 
 mon_ops: dict[str, Callable[[int], int]] = {
