@@ -2,7 +2,7 @@ import sys
 from typing import Callable
 
 
-def mean_dist(a: int, b: int) -> int:
+def g_dist(a: int, b: int) -> int:
     distance = abs(a - b)
     return distance * (distance + 1) // 2
 
@@ -13,7 +13,7 @@ def main():
         print("".join(chr(i) for i in inputs))  # wish it was
 
     print(f"Part One: {solve(inputs, lambda a, b: abs(a - b))}")
-    print(f"Part Two: {solve(inputs, mean_dist)}")
+    print(f"Part Two: {solve(inputs, g_dist)}")
 
 
 def solve(inputs: list[int], cost_exp: Callable[[int, int], int]):
