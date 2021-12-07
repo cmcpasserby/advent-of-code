@@ -1,4 +1,3 @@
-from copy import copy
 from operator import ge, lt
 from typing import Callable
 
@@ -29,7 +28,7 @@ def part_two(inputs: list[int]) -> int:
 
 
 def get_reading(inputs: list[int], predicate: Callable[[int, int], bool]) -> int:
-    data = copy(inputs)
+    data = inputs[:]
 
     for pos in reversed(range(12)):
         ones = sum((i & (1 << pos)) > 0 for i in data)
