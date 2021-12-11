@@ -11,7 +11,6 @@ def main():
     print(f"Part Two: {part_two(i for i in inputs if isinstance(i, list))}")
 
 
-
 def parse_line(line: str) -> str | list[str] | None:
     stack = []
 
